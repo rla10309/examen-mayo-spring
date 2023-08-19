@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Pagina principal</h1>
+	<form th:action="@{/pasajero/buscarinformacion}" method="post">
+		<div>
+			<label for="dni">DNI</label> <input type="text" name="dni" />
+		</div>
+		<input type="submit" value="Buscar datos"/>
+	</form>
+
+</body>
+</html>

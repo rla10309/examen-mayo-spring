@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<td>IdVuelo</td>
+				<td>Descripcion</td>
+				<td>Fecha Salida</td>
+				<td>Hora Salida</td>
+				<td>Hora Llegada</td>
+				<td>Embarque prioritario</td>
+				<td>Identificador</td>
+				<td>Maleta10</td>
+				<td>Maleta20</td>
+				<td>Tarjeta embarque</td>
+				<td>Pasajero</td>
+				<td>DNI pasajero</td>
+				<td>Acciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="vp : ${vuelospasajero}">
+			<td th:text="${vp.vuelo.idvuelo}"></td>
+			<td th:text="${vp.vuelo.descripcion}"></td>
+			<td th:text="${vp.vuelo.fecha}"></td>
+			<td th:text="${vp.vuelo.horasalida}"></td>
+			<td th:text="${vp.vuelo.horallegada}"></td>
+			<td th:text="${vp.embarqueprioritario}"></td>
+			<td th:text="${vp.vuelo.identificador}"></td>
+			<td th:text="${vp.maleta10}"></td>
+			<td th:text="${vp.maleta20}"></td>
+			<td th:text="${vp.tarjetaembarque}"></td>
+			<td th:text="${vp.pasajero.nombre}"></td>
+			<td th:text="${vp.pasajero.dni}"></td>
+			<td><a th:href="@{/pasajero/formmodificar(idvuelopasajero=${vp.idvuelopasajero})}">Modificar</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

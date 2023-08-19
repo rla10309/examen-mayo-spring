@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form th:object="${vp}" th:action="@{/pasajero/modificar}"
+		method="post">
+		<input type="hidden" th:field="*{idvuelopasajero} " />
+
+		<div>
+			<label for="vuelo">Vuelo</label> 
+			<select th:field="*{vuelo}">
+			<option th:each= "v : ${vuelos}"
+			th:text="${v.descripcion}"
+			th:value="${v.idvuelo}"
+			th:selected="${v.idvuelo == vp.vuelo.idvuelo}"></option>
+			</select>
+		</div>
+		<div>
+			<label for="fecha">Fecha</label> <input type="text"
+				th:value="${vp.vuelo.fecha}" th:field="*{vuelo.fecha}"/>
+		</div>
+		<div>
+			<label for="horasalida">Horas de salida</label> <input type="text"
+				th:value="${vp.vuelo.horasalida}" th:field="*{vuelo.horasalida}"/>
+		</div>
+		<div>
+			<label for="horallegada">Hora de llegada</label> <input type="text"
+				th:value="${vp.vuelo.horallegada}" th:field="*{vuelo.horallegada}"/>
+		</div>
+		<div>
+			<label for="identificador">Identificador</label> <input type="text"
+				 th:field="*{vuelo.identificador}"/>
+		</div>
+		<div>
+			<label for="embarqueprioritarios">Embarque Prioritario</label> <input
+				type="text" th:value="${embarqueprioritario}" th:field="*{embarqueprioritario}"/>
+		</div>
+		<div>
+			<label for="maleta10">Maleta10</label> <input type="text"
+				th:value="${maleta10}" th:field="*{maleta10}"/>
+		</div>
+		<div>
+			<label for="maleta20">Maleta20</label> <input type="text"
+				th:value="${maleta20}" th:field="*{maleta20}" />
+		</div>
+		<div>
+			<label for="tarjetaembarque">Tarjeta Embarque</label> <input
+				type="text" th:value="${tarjetaembarque}" th:field="*{tarjetaembarque}" />
+		</div>
+		<div>
+			<label for="pasajero">Pasajero</label> <select th:field="*{pasajero}">
+				<option th:each="p : ${pasajeros}" th:text="${p.nombre}"
+					th:value="${p.idpasajero}"
+					th:selected="${p.idpasajero== vp.pasajero.idpasajero}"></option>
+			</select>
+		</div>
+		<input type="submit" value="Modifica datos"/>
+	</form>
+<p th:text="${error}"></p>
+</body>
+</html>
